@@ -1,6 +1,7 @@
 set shell := ["powershell.exe", "-c"]
 
 # scoop install dotnet10-sdk dotnet9-sdk just git;
+# git submodule add "https://github.com/goatcorp/FFXIVQuickLauncher" ./submodules/FFXIVQuickLauncher;
 
 default:
     just --list;
@@ -19,8 +20,5 @@ clean:
 
 [working-directory: "./submodules/FFXIVQuickLauncher/src"]
 run:
-    # scoop reset dotnet9-sdk
-    # ./XIVLauncher/bin/Release/XIVLauncher.exe
     & "$(scoop prefix dotnet9-sdk)\\dotnet.exe" ".\\XIVLauncher\\bin\\Debug\\XIVLauncher.dll"
 
-    # submodules\FFXIVQuickLauncher\src\XIVLauncher\bin\Release\XIVLauncher.dll
